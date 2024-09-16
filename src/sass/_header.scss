@@ -1,0 +1,42 @@
+@import 'mixins';
+.header {
+  @extend %parent-with-centered-children;
+  flex-direction: column;
+  color: var(--color-dark-2);
+
+  &__logo {
+    @extend %parent-with-centered-children;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &-img {
+      width: clamp(100px, 47.5%, 700px);
+      aspect-ratio: 5 / 2;
+    }
+  }
+
+  &__icons-wrapper {
+    @include center-self(vertical, absolute);
+    @extend %icon-wrapper;
+  }
+
+  &__btn-icon {
+    @extend %btn-icon;
+
+    &:hover .cart-badge {
+      @extend %cart-badge--hover;
+    }
+
+    & .cart-badge {
+      @extend %parent-with-centered-children;
+      @extend %cart-badge;
+    }
+  }
+
+  &__search-svg {
+    @extend %search-svg;
+  }
+}
